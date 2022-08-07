@@ -6,6 +6,17 @@
     "background": {
       "service_worker": "background.js"
     },
+    "content_scripts": [
+      {
+        "js": ["contentscript.js"],
+        "matches": ["<all_urls>"],
+        "run_at": "document_end"
+      }
+    ],
+    "web_accessible_resources": [{
+      "resources": ["execute_script.js"],
+      "matches": ["<all_urls>"]
+    }],
     "permissions": ["storage", "activeTab", "scripting", "webNavigation"],
     "action": {
       "default_popup": "popup.html",
